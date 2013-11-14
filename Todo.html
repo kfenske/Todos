@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>To Do Manager</title>
+		<style type="text/css">
+			ul {
+				color: blue;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h3>Today's Todos</h3>
+			<ul id="todoitem"></ul>
+		</div>
+		<p>New Todo: <input type="text" id="todo" /></p>
+		<input type="submit" value="Submit" id="button" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var num = 0;
+				$("#button").click(function() {
+				$("#todoitem").append("<li id=' "+ num +" '>" + $("#todo").val() + "</li>");
+				num++;
+				$("#todo").val("");
+				});
+
+				$("#todoitem").click(function(){
+					var todoremove = event.target;
+					todoremove.remove();
+				});
+			});
+		</script>
+	</body>
+</html>
