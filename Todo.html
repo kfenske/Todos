@@ -8,29 +8,29 @@
 				cursor: pointer;
 			}
 		</style>
-	</head>
-	<body>
-		<div>
-			<h3>Today's Todos</h3>
-			<ul id="todoitem"></ul>
-		</div>
-		<p>New Todo: <input type="text" id="todo" /></p>
-		<input type="submit" value="Submit" id="button" />
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript">
-			$(function(){
-				var num = 0;
-				$("#button").click(function() {
-				$("#todoitem").append("<li id=' "+ num +" '>" + $("#todo").val() + "</li>");
-				num++;
-				$("#todo").val("");
+			var num = 0;
+			$(document).ready(function(){
+				$("#btnAdd").click(function() {
+					$("#todoItem").append("<li id='item" + num + "'>" + $("#txtTodo").val() + "</li>");
+					$("#txtTodo").val("");
+					num++;
 				});
 
-				$("#todoitem").click(function(){
-					var todoremove = event.target;
-					todoremove.remove();
+				$("#todoItem").click(function(){
+					var todoRemove = event.target;
+					todoRemove.remove();
 				});
 			});
 		</script>
+	</head>
+	<body>
+		<div>
+			<h3>Today's To Dos</h3>
+			<ul id="todoItem"></ul>
+		</div>
+		<p>New To Do: <input type="text" id="txtTodo" /></p>
+		<input type="submit" value="Submit" id="btnAdd" />
 	</body>
 </html>
